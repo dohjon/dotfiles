@@ -1,0 +1,370 @@
+{
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "top",
+  "spacing": 0,
+  "height": 26,
+  "modules-left": [
+    "custom/omarchy", 
+    "hyprland/workspaces"
+    // "hyprland/windowcount",
+    // "hyprland/window",
+
+  ],
+  "modules-center": [
+    "idle_inhibitor",
+    "clock", 
+    "mpris#spotify",
+    "mpris#chromium",
+    "custom/update", 
+    "custom/screenrecording-indicator",
+    "privacy"
+  ],
+  "modules-right": [
+    "group/tray-expander",
+    "hyprland/language",
+    "custom/darkmode",
+    "bluetooth",
+    "network",
+    "pulseaudio",
+    "cpu",
+    "memory",
+    "disk",
+    "battery",
+    "load",
+    "systemd-failed-units#system",
+    "systemd-failed-units#user",
+    "group/group-temperature",
+    "custom/vpn",
+    "backlight", 
+  ],
+  "hyprland/window": {
+      "format": "👉 {}",
+      "rewrite": {
+          "(.*) — Mozilla Firefox": "🌎 $1",
+          "(.*) - fish": "> [$1]"
+      },
+      "separate-outputs": true
+  },
+  "hyprland/windowcount": {
+      "format": "[{}]",
+      "format-empty": "[X]",
+      "format-windowed": "[T]",
+      // "format-fullscreen": "[{}]",
+      "separate-outputs": true
+  },
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "sort-by-number" : true,
+    "format-icons": {
+		  // "1": "",
+      // "2": "",
+      // "3": "󰈙",
+      // "4": "",
+      "5": "",
+      "active": "󱓻",
+      "default": "",
+    },
+    // "persistent-workspaces": {
+    //   "*": 3
+    // },
+    "on-scroll-up" : "hyprctl dispatch workspace r-1",
+    "on-scroll-down ": "hyprctl dispatch workspace r+1",
+  },
+  "custom/omarchy": {
+    "format": "<span font='omarchy'>\ue900</span>",
+    "on-click": "omarchy-menu",
+    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
+  },
+  "custom/update": {
+    "format": "",
+    "exec": "omarchy-update-available",
+    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+    "tooltip-format": "Omarchy update available",
+    "signal": 7,
+    "interval": 3600
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "󰍛",
+    "on-click": "$TERMINAL -e btop"
+  },
+  "memory": {
+    "interval": 5,
+    "format": "",
+    "tooltip-format": "{used:0.1f}G ({percentage}%) used out of {total:0.1f}G\n{avail:0.1f}G left to use.",
+    "on-click": "$TERMINAL -e btop"
+  },
+  "load": {
+    "interval": 1,
+    "format": "load"
+  },
+  "backlight": {
+      // "device": "acpi_video1",
+      "format": "{percent}% {icon}",
+      "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+  "disk": {
+    // "format": "SSD",
+    "path": "/",
+    "tooltip-format": "Disk\n{used} ({percentage_used}%) used out of {total} on {path}\n{free} left to use.",
+    "on-click": "$TERMINAL --hold -e duf"
+  },
+  "systemd-failed-units#system": {
+    "hide-on-ok": true,
+    "format": "✗ {nr_failed}",
+    "format-ok": "✓",
+    "system": true,
+    "user": false,
+    "on-click": "$TERMINAL --hold -e systemctl --failed",
+  },
+  "systemd-failed-units#user": {
+    "hide-on-ok": true,
+    "format": "✗ {nr_failed}",
+    "format-ok": "✓",
+    "system": false,
+    "user": true,
+    "on-click-right": "$TERMINAL --hold -e systemctl --user --failed"
+  },
+  "custom/darkmode": {
+    "format": "{icon}",
+    "format-icons": [ "󰃛","󰃠" ],
+    "tooltip": false,
+    "on-click": "omarchy-toggle-nightlight"
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%F %B W%V %Y}",
+    "tooltip": false,
+    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
+  },
+  "network": {
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format": "󰤮",
+    "tooltip-format": "Unknown check rfkill list for softblocked {ifname} via {gwaddr}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n{ipaddr} ({ifname})\n{gwaddr} (Gateway)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes} 󰹹{bandwidthTotalBytes}",
+    "tooltip-format-ethernet": "{ipaddr}\n{ifname}\n{netmask}\n{cidr}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes} 󰹹{bandwidthTotalBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 13,
+    "spacing": 1,
+    "on-click": "omarchy-launch-wifi",
+    "on-click-right": "rfkill toggle wlan"
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-discharging": "{icon}",
+    "format-charging": "{icon}",
+    "format-plugged": "",
+    "format-icons": {
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "format-full": "󰂅",
+    "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+    "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+    "interval": 5,
+    "on-click": "omarchy-menu power",
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
+  },
+  "privacy": {
+    "modules": [
+      {
+        "type": "screenshare",
+      },
+      {
+        "type": "audio-out",
+      },
+      {
+        "type": "audio-in",
+      }
+    ],
+    "ignore-monitor": true,
+    // "ignore": [
+    //   {
+    //     "type": "audio-in",
+    //     "name": "cava"
+    //   },
+    //   {
+    //     "type": "screenshare",
+    //     "name": "obs"
+    //   }
+    // ]
+  },
+  "group/group-temperature": {
+    "orientation": "horizontal",
+    "modules": [
+      "temperature#thermal0",
+      "temperature#thermal1",
+      "temperature#thermal2",
+      "temperature#thermal3",
+    ],
+  },
+  // for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+  "temperature#thermal0": {
+    "format": "{icon}",
+    "thermal-zone": 0,
+    "critical-threshold": 80,
+    "format-icons": [ "","","","","" ],
+  },
+  "temperature#thermal1": {
+    "format": "{icon}",
+    "thermal-zone": 1,
+    "critical-threshold": 80,
+    "format-icons": [ "","","","","" ],
+  },
+  "temperature#thermal2": {
+    "format": "{icon}",
+    "thermal-zone": 2,
+    "critical-threshold": 80,
+    "format-icons": [ "","","","","" ],
+  },
+  "temperature#thermal3": {
+    "format": "{icon}",
+    "thermal-zone": 3,
+    "critical-threshold": 80,
+    "format-icons": [ "","","","","" ],
+  },
+  "hyprland/language": {
+    "format-en": "US",
+    "format-sv": "SE",
+    "keyboard-name": "nuphy-nuphy-air75-v2",
+    "on-click": "hyprctl switchxkblayout nuphy-nuphy-air75-v2 next"
+  },
+  // "custom/pacman": {
+  //     "format": "{}  ",
+  //     "interval": "once",
+  //     "exec": "pacman_packages",
+  //     "on-click": "update-system",
+  //     "signal": 8
+  // },
+
+  "custom/vpn": {
+      "format": "VPN ",
+      "exec": "echo '{\"class\": \"connected\"}'",
+      "exec-if": "test -d /proc/sys/net/ipv4/conf/tun0",
+      "return-type": "json",
+      "interval": 5
+  },
+  "custom/pacman": {
+      "format": "{}  ",
+      "interval": 3600,                     // every hour
+      "exec": "checkupdates | wc -l",       // # of updates
+      "exec-if": "exit 0",                  // always run; consider advanced run conditions
+      "on-click": "termite -e 'sudo pacman -Syu'; pkill -SIGRTMIN+8 waybar", // update system
+      "signal": 8
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "blueberry"
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "on-click": "$TERMINAL --class=Wiremix -e wiremix",
+    "on-click-right": "pamixer -t",
+    "tooltip-format": "Playing at {volume}%",
+    "scroll-step": 5,
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", ""]
+    }
+  },
+  "mpris#spotify": {
+    "player": "spotify",
+    "format": "{player_icon} {status_icon}",
+    "format-paused": "{player_icon} {status_icon}",
+    "format-stopped": "■",
+    "status-icons": {
+      "playing": "▶",
+      "paused": "⏸"
+    },
+    "player-icons": {
+      "spotify": "",
+    }
+  },
+
+  "mpris#chromium": {
+    "player": "chromium",
+    "format": "{player_icon} {status_icon}",
+    "format-paused": "{player_icon} {status_icon}",
+    "status-icons": {
+      "playing": "▶",
+      "paused": "⏸"
+    },
+    "player-icons": {
+      "chromium": "",
+      "google-chrome": "",
+    }
+  },
+  "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+          "activated": "",
+          "deactivated": " "
+      }
+  },
+  // "mpris#spotify": {
+  //   "format": "{player}: {artist} — {title}",
+  //   "status-icons": {
+  //     "paused": "⏸"
+  //   },
+  //   "ignored-players": ["chromium"]
+  // },
+  // "mpris#chromium": {
+  //   "format": "{player}: {title}",
+  //   // "player-icons": {
+  //   //   "default": "▶",
+  //   //   "mpv": "🎵"
+  //   // },
+  //   "status-icons": {
+  //     "paused": "⏸"
+  //   },
+  //   // "ignored-players": ["spotify"]
+  // },
+  
+  // "mpris": {
+  //   "format": "{player_icon} {artist} - {title}",
+  //   "format-paused": "{player}: {status_icon}",
+  //   // "format": "DEFAULT: {player_icon} {dynamic}",
+  //   // "format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
+  //   "player-icons": {
+  //     "default": "▶",
+  //     "mpv": "🎵"
+  //   },
+  //   "status-icons": {
+  //     "paused": "⏸"
+  //   },
+  //   // "ignored-players": ["firefox"]
+  // },
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item"
+    },
+    "modules": ["custom/expand-icon", "tray"]
+  },
+  "custom/expand-icon": {
+    "format": " ",
+    "tooltip": false
+  },
+  "custom/screenrecording-indicator": {
+    "on-click": "omarchy-cmd-screenrecord",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
+    "signal": 8,
+    "return-type": "json"
+  },
+  "tray": {
+    "icon-size": 12,
+    "spacing": 12
+  }
+}
