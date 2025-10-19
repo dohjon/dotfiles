@@ -1,0 +1,26 @@
+#battery {
+
+}
+
+#battery.charging {
+  color: @success;
+}
+
+#battery.warning {
+  color: @warning;
+}
+
+#battery.warning:not(.charging) {
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  to {
+    background-color: @background;
+    color: @critical;
+  }
+}

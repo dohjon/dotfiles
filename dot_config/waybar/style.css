@@ -1,5 +1,42 @@
 @import "../omarchy/current/theme/waybar.css";
 
+@define-color primary #89b4fa;
+@define-color success #94e2d5;
+@define-color warning #fab387;
+@define-color critical #f38ba8;
+
+/* Native */
+@import "modules/workspaces/style.css";
+@import "modules/clock/style.css";
+@import "modules/tray/style.css";
+@import "modules/expand-icon/style.css";
+@import "modules/tray-expander/style.css";
+
+@import "modules/bluetooth/style.css";
+@import "modules/network/style.css";
+@import "modules/pulseaudio/style.css";
+@import "modules/cpu/style.css";
+@import "modules/battery/style.css";
+@import "modules/systemd-failed-units/style.css";
+@import "modules/keyboard/style.css";
+@import "modules/backlight/style.css";
+@import "modules/disk/style.css";
+@import "modules/memory/style.css";
+@import "modules/load/style.css";
+
+
+/* Custom modules styles */
+@import "modules/monitors/style.css";
+@import "modules/menu/style.css";
+@import "modules/update/style.css";
+@import "modules/screenrecord/style.css";
+@import "modules/mpris-spotify/style.css";
+@import "modules/mpris-chromium/style.css";
+@import "modules/privacy/style.css";
+@import "modules/temperature/style.css";
+@import "modules/coredumps/style.css";
+@import "modules/hyprsunset/style.css";
+
 * {
   background-color: @background;
   color: @foreground;
@@ -19,6 +56,16 @@
   margin-right: 8px;
 }
 
+#waybar .module {
+  min-width: 12px;
+  margin: 0 7.5px;
+}
+
+tooltip {
+
+}
+
+/* 
 #workspaces button {
   all: initial;
   padding: 0 6px;
@@ -80,4 +127,4 @@ tooltip {
 
 #custom-screenrecording-indicator.active {
   color: #a55555;
-}
+} */

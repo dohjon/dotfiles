@@ -1,0 +1,10 @@
+{
+  // https://wiki.hyprland.org/Crashes-and-Bugs/
+  "custom/coredumps": {
+    "format": "COR",
+    "tooltip": true,
+    "tooltip-format": "click for latest coredump. right-click to see all coredumps",
+    "on-click": "$TERMINAL --hold -e coredumpctl info -1",
+    "on-click-right": "$TERMINAL --hold -e coredumpctl list"
+  }
+}

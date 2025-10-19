@@ -1,0 +1,17 @@
+{
+  "network": {
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format": "󰤮",
+    "tooltip-format": "Unknown check rfkill list for softblocked {ifname} via {gwaddr}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n{ipaddr} ({ifname})\n{gwaddr} (Gateway)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes} 󰹹{bandwidthTotalBytes}",
+    "tooltip-format-ethernet": "{ipaddr}\n{ifname}\n{netmask}\n{cidr}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes} 󰹹{bandwidthTotalBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 13,
+    "spacing": 1,
+    "on-click": "omarchy-launch-wifi",
+    "on-click-right": "rfkill toggle wlan"
+  }
+}

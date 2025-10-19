@@ -1,0 +1,12 @@
+{
+  "systemd-failed-units": {
+    "hide-on-ok": false,
+    "format": "✗ {nr_failed}",
+    "format-ok": "✓",
+    "tooltip-format": "total:{nr_failed}\nsystem:{nr_failed_system}\nuser:{nr_failed_user}\n",
+    "system": true,
+    "user": true,
+    "on-click": "$TERMINAL --hold -e systemctl --failed",
+    "on-click-right": "$TERMINAL --hold -e systemctl --user --failed"
+  }
+}

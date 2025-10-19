@@ -1,0 +1,8 @@
+{
+  "custom/menu": {
+    // "format": "<span font='omarchy'>\ue900</span>",
+    "format": "<span font='Symbols Nerd Font 12'>&#xF303;</span>",
+    "on-click": "omarchy-menu",
+    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
+  }
+}

@@ -1,0 +1,19 @@
+#privacy {
+    color: @critical;
+}
+
+#privacy-item {
+    color: @critical;
+}
+
+#privacy-item.screenshare {
+    color: @critical;
+}
+
+#privacy-item.audio-in {
+    color: @critical;
+}
+
+#privacy-item.audio-out{
+    color: @critical;
+}

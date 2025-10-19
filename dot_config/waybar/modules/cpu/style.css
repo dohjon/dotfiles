@@ -1,0 +1,15 @@
+#cpu {
+
+}
+
+#cpu.low {
+    color: @success;
+}
+
+#cpu.medium {
+    color: @warning;
+}
+
+#cpu.high {
+    color: @critical;
+}

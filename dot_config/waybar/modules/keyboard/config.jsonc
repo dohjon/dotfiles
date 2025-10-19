@@ -1,0 +1,8 @@
+{
+  "hyprland/language": {
+    "format-en": "US",
+    "format-sv": "SE",
+    "keyboard-name": "nuphy-nuphy-air75-v2",
+    "on-click": "hyprctl switchxkblayout nuphy-nuphy-air75-v2 next"
+  }
+}

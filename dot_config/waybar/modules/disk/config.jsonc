@@ -1,0 +1,8 @@
+{
+  "disk": {
+    // "format": "SSD",
+    "path": "/",
+    "tooltip-format": "Disk\n{used} ({percentage_used}%) used out of {total} on {path}\n{free} left to use.",
+    "on-click": "$TERMINAL --hold -e duf"
+  }
+}

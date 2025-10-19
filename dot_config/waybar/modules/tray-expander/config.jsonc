@@ -1,0 +1,19 @@
+{
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item"
+    },
+    "modules": [
+      "custom/expand-icon", 
+      "tray",
+      "disk",
+      "cpu",
+      "load",
+      "memory",
+      "group/temperature",
+      "custom/coredumps"
+    ]
+  }
+}

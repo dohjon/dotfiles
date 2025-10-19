@@ -1,0 +1,9 @@
+#mpris.chromium.playing { 
+    color: @success;
+} 
+
+#mpris.chromium.paused  { 
+    color: @warning;
+}
+
+#mpris.chromium.stopped { }

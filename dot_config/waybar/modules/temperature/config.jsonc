@@ -1,0 +1,36 @@
+{
+  "group/temperature": {
+    "orientation": "horizontal",
+    "modules": [
+      "temperature#thermal0",
+      "temperature#thermal1",
+      "temperature#thermal2",
+      "temperature#thermal3"
+    ],
+  },
+  // for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+  "temperature#thermal0": {
+    "format": "{icon}",
+    "thermal-zone": 0,
+    "critical-threshold": 80,
+    "format-icons": [ "","","","","" ]
+  },
+  "temperature#thermal1": {
+    "format": "{icon}",
+    "thermal-zone": 1,
+    "critical-threshold": 80,
+    "format-icons": [ "","","","","" ]
+  },
+  "temperature#thermal2": {
+    "format": "{icon}",
+    "thermal-zone": 2,
+    "critical-threshold": 80,
+    "format-icons": [ "","","","","" ]
+  },
+  "temperature#thermal3": {
+    "format": "{icon}",
+    "thermal-zone": 3,
+    "critical-threshold": 80,
+    "format-icons": [ "","","","","" ]
+  }
+}

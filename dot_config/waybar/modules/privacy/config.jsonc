@@ -1,0 +1,11 @@
+{
+  "privacy": {
+    "transition-duration": 250,
+    "modules": [
+      { "type": "screenshare" },
+      { "type": "audio-out" },
+      { "type": "audio-in" }
+    ],
+    // "ignore-monitor": true,
+  }
+}

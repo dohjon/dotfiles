@@ -1,0 +1,6 @@
+{
+  "load": {
+    "interval": 1,
+    "format": "load"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "custom/hyprsunset": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/modules/hyprsunset/hyprsunset.sh status",
+    "interval": 3,
+    "format": "{}",
+    "tooltip": true,
+
+    "signal": 5,
+    "on-click": "~/.config/waybar/modules/hyprsunset/hyprsunset.sh toggle; kill -SIGRTMIN+5 $(pidof waybar)"
+  }
+}

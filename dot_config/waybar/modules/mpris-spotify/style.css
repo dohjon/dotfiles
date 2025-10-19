@@ -1,0 +1,9 @@
+#mpris.spotify.playing { 
+    color: @success;
+} 
+
+#mpris.spotify.paused  { 
+    color: @warning;
+}
+
+#mpris.spotify.stopped { }

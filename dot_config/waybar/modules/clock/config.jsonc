@@ -1,0 +1,8 @@
+{
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%F %B W%V %Y}",
+    "tooltip": false,
+    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
+  }
+}

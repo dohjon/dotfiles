@@ -1,0 +1,16 @@
+{
+  "mpris#chromium": {
+    "player": "chromium",
+    "format": "{player_icon} {status_icon}",
+    "format-paused": "{player_icon} {status_icon}",
+    "format-stopped": "■",
+    "status-icons": {
+      "playing": "▶",
+      "paused": "⏸"
+    },
+    "player-icons": {
+      "chromium": "",
+      "google-chrome": "" //
+    }
+  }
+}

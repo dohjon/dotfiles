@@ -1,0 +1,11 @@
+#systemd-failed-units {
+
+}
+
+#systemd-failed-units.ok{
+    color: @success;
+}
+
+#systemd-failed-units.degraded{
+    color: @critical;
+}

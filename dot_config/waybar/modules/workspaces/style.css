@@ -1,0 +1,18 @@
+#workspaces {
+
+}
+
+#workspaces button {
+    all: initial;
+    padding: 0 6px;
+    margin: 0 1.5px;
+    min-width: 9px;
+}
+
+#workspaces button.empty {
+    opacity: 0.5;
+}
+
+#workspaces button.active label {
+    color: @primary;
+}
